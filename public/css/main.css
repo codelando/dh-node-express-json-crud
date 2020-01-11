@@ -2,6 +2,11 @@
 
 /* https://coolors.co/d8a47f-ef8354-ee4b6a-df3b57-0f7173 */
 
+:root {
+    --border-radius: 1rem;
+    --padding: 1rem;
+}
+
 * { box-sizing: border-box; }
 
 body {
@@ -10,6 +15,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: #e9f2f2;
     font-family: sans-serif;
 }
 
@@ -45,3 +51,42 @@ footer a{
 }
 
 /* Estilos de cada página */
+
+/* Productos */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.products::after {
+    content: "";
+    flex-grow: 1;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    margin: 1rem .5rem
+}
+
+.product .desc {
+    flex-grow: 1;
+}
+
+.product .price {
+    color: #0f7173;
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    border-top: 1px solid #0f7173;
+    padding: .5rem 0 0;
+}
+
+@media (min-width: 768px) {
+    .product {
+        width: calc(25% - 1rem);
+    }
+}

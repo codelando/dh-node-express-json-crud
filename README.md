@@ -58,3 +58,10 @@ Verificamos que el servidor responda a las nuevas rutas.
 Verificamos que el servidor haya tomado los estilos correctamente.
 
 **--- Fin del commit 2 ---**
+
+### Agregamos la entidad de productos
+1. Repetimos los pasos anteriores para los **productos**
+    - Archivo de rutas **routes/products.js**, de momento solo **/**.
+    - Archivo de controllador **controllers/productsController.js**, de momento sólo el método **index**.
+    - Carpeta de vistas **views/products** con la vista del listado **index.ejs**.
+    - **app.use()** en **src/app.js** con las rutas de productos.
