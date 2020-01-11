@@ -1,0 +1,20 @@
+{
+  "name": "json-another-crud",
+  "version": "0.0.1",
+  "description": "JSON based crud made with Node.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "startdev": "npx nodemon src/app.js -e js,ejs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ezequiel Cortés",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
