@@ -5,6 +5,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'src/views');
 
-app.use('/', (req, res) => res.render('index'));
+app.use(express.static('public'));
+
+// Routes
+app.use('/', require('./routes/static'));
 
 app.listen(3000, () => console.log('Servidor corriendo en el puerto 3000'));
