@@ -19,11 +19,15 @@ body {
     font-family: sans-serif;
 }
 
-a { text-decoration: none; }
+a { 
+    color: inherit;
+    text-decoration: inherit;
+}
 
 /* Clases de ayuda */
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
@@ -33,6 +37,17 @@ a { text-decoration: none; }
     flex-grow: 1;
     padding-top: 3rem;
     padding-bottom: 3rem;
+}
+
+.message {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+}
+
+.message.error-message {
+    background-color: #ee4b6a;
+    color: white;
 }
 
 /* Componentes principales */
@@ -53,6 +68,7 @@ footer a{
 /* Estilos de cada página */
 
 /* Productos */
+
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -86,7 +102,7 @@ footer a{
 }
 
 @media (min-width: 768px) {
-    .product {
+    .products .product {
         width: calc(25% - 1rem);
     }
 }
