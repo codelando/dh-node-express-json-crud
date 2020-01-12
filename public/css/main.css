@@ -3,7 +3,7 @@
 /* https://coolors.co/d8a47f-ef8354-ee4b6a-df3b57-0f7173 */
 
 :root {
-    --border-radius: 1rem;
+    --border-radius: .5rem;
     --padding: 1rem;
 }
 
@@ -48,6 +48,20 @@ a {
 .message.error-message {
     background-color: #ee4b6a;
     color: white;
+}
+
+.actions {
+    padding-top: 1rem;
+}
+
+.button {
+    display: inline-block;
+    padding: var(--padding);
+    background-color: #0f7173;
+    color: white;
+    border-radius: var(--border-radius);
+    border: 0;
+    cursor: pointer;
 }
 
 /* Componentes principales */

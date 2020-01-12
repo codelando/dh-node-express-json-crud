@@ -5,6 +5,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'src/views');
 
+// Middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static('public'));
 
 // Routes

@@ -76,5 +76,32 @@ Verificamos que el servidor haya tomado los estilos correctamente.
 4. Creamos el modelo genérico para JSON **models/jsonModel.js**, en él tendremos dos métodos iniciales:
     - Lectura del archivo JSON
     - Traer todos los elementos
+5. Actualizamos el controlador de productos para que utilize nuestro nuevo modelo y envíe los productos a la vista.
+6. Actualizamos la vista para que muestre los productos de manera dinámica.
 
+**--- Fin del commit 4 ---**
 
+### Detalle de productos
+1. Detalle de producto:
+    - Modelo: método find()
+    - Ruta: **/productos/:id** (GET)
+    - Controlador: método **show()**
+    - Vista: **products/detail.ejs**
+    - Error: **products/404.ejs**
+    
+**--- Fin del commit 5 ---**
+
+### Creación de productos
+1. Como vamos a trabajar con formularios, necesitamos implementar dos middlewares de Express
+    - express.urlencoded()
+    - express.json()
+2. Formulario de nuevo producto:
+    - Ruta: **/productos/nuevo** (GET)
+    - Controlador: método **create()**
+    - Vista: **products/create.ejs**
+3. Almacenamiento en la colección de productos
+    - Modelo: método **generatePk()** y **save()**
+    - Ruta: **/productos** (POST)
+    - Controlador: método **store()**
+
+**--- Fin del commit 6 ---**

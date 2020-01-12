@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+    <h1>Nuevo producto</h1>
+    <section class="product-detail">
+        <article class="product">
+            <form action="/productos" method="POST">
+                <p>
+                    <label>
+                        Título:
+                        <input type="text" name="title">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Descrición:
+                        <textarea name="desc"></textarea>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Precio:
+                        <input type="text" name="price">
+                    </label>
+                </p>
+                <p>
+                    <button type="submit" class="button">Crear producto</button>
+                </p>
+            </form>
+        </article>
+    </section>
+    
+<%- include('../partials/footer') %>

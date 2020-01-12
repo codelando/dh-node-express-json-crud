@@ -21,7 +21,15 @@ const controller = {
                 }
             });
         }
-    }
+    },
+    create: (req, res) => {
+        res.render('products/create');
+    },
+    store: (req, res) => {
+        let productId = productsModel.save(req.body);
+        res.redirect('productos/' + productId);
+    },
+    
 }
 
 module.exports = controller;
