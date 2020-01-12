@@ -1,0 +1,15 @@
+<%- include('../partials/head') %>
+    <section class="product-detail">
+        <div class="container form-container">
+            <h1 class="title">Editar producto</h1>
+            <form action="/productos/<%= product.id %>?_method=PUT" method="POST">
+                <%- include('./partials/formFields'); %>
+                <p class="buttons">
+                    <a class="button" href="/productos/<%= product.id %>">&larr; Volver al detalle</a>
+                    <button type="submit" class="button is-primary">Guardar producto</button>
+                </p>
+            </form>
+        </div>
+    </section>
+    
+<%- include('../partials/footer') %>

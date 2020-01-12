@@ -4,7 +4,6 @@ const path = require('path');
 class JsonModel {
     constructor(name) {
         this.name = name;
-        this.pk = 'id';
         this.dataDir = '../data/';
         this.dataPath = path.resolve(__dirname, this.dataDir , this.name + '.json');
     }
@@ -30,7 +29,7 @@ class JsonModel {
         let lastItem = items.pop();
         
         if(lastItem) {
-            return ++lastItem[this.pk];
+            return ++lastItem.id;
         }
 
         return 1;
@@ -42,18 +41,34 @@ class JsonModel {
     /** Trae un documento por su valor de clave primaria */
     find(value) {
         let items = this.readJsonFile();
-        return items.find((item) => item[this.pk] == value)
+        return items.find((item) => item.id == value)
     }
 
     /** Guarda el documento en la colección */
     save(item) {
         let items = this.readJsonFile();
-        item[this.pk] = this.generatePk();
+        item.id = this.generatePk();
         items.push(item);
 
         this.writeJsonFile(items);
 
-        return item[this.pk];
+        return item.id;
+    }
+
+    /** Actualiza el documento en la colección */
+    update(item) {
+        let items = this.readJsonFile();
+        
+        let updatedItems = items.map((currentItem) => {
+            if (currentItem.id == item.id) {
+                return currentItem = item;
+            }
+            return currentItem;
+        });
+        
+        this.writeJsonFile(updatedItems);
+
+        return item.id;
     }
 }
 

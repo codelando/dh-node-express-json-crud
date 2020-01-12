@@ -7,5 +7,8 @@
             <p class="price">$ <%= product.price %></p>
         </article>
     </section>
-    
+    <section class="buttons">
+        <a class="button" href="/productos/">&larr; Volver al listado</a>
+        <a class="button is-primary" href="/productos/<%= product.id %>/editar">Editar producto</a>
+    </section>
 <%- include('../partials/footer') %>

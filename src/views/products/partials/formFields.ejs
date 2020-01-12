@@ -1,0 +1,18 @@
+<p>
+    <label>
+        Título
+        <input type="text" name="title" value="<%= locals.product ? locals.product.title : '' %>">
+    </label>
+</p>
+<p>
+    <label>
+        Descrición
+        <textarea name="desc"><%= locals.product ? locals.product.desc : '' %></textarea>
+    </label>
+</p>
+<p>
+    <label>
+        Precio
+        <input type="text" name="price" value="<%= locals.product ? locals.product.price : '' %>">
+    </label>
+</p>

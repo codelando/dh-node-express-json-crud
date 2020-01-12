@@ -1,31 +1,14 @@
 <%- include('../partials/head') %>
-    <h1>Nuevo producto</h1>
     <section class="product-detail">
-        <article class="product">
+        <div class="container form-container">
+            <h1 class="title">Nuevo producto</h1>
             <form action="/productos" method="POST">
-                <p>
-                    <label>
-                        Título:
-                        <input type="text" name="title">
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Descrición:
-                        <textarea name="desc"></textarea>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Precio:
-                        <input type="text" name="price">
-                    </label>
-                </p>
-                <p>
-                    <button type="submit" class="button">Crear producto</button>
+                <%- include('./partials/formFields'); %>
+                <p class="buttons">
+                    <button type="submit" class="button is-primary">Crear producto</button>
                 </p>
             </form>
-        </article>
+        </div>
     </section>
     
 <%- include('../partials/footer') %>

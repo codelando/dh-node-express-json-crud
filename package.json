@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "method-override": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

@@ -1,6 +1,14 @@
 # CRUD de productos basado en JSON hecho con Node
 
+A continuación se describe el proceso de desarrollo de manera resumida.
+
+Los cambios referentes a HTML o CSS no se mencionan ya que el foco está en el funcionamiento de la aplicación y el entenidmiento de Node.
+
+También se incluyen para mayor claridad las fuentes de datos que normalmente no estarían presentes en el repositorio.
+
 ## Pasos
+
+La mayoría de los pasos o grupos de pasos se coinciden con los commits del repositorio, de manera que es posible traerlos uno a uno para ver la progresión de manera más evidente.
 
 ### Iniciando el proyecto
 1. Creamos el directorio e iniciamos el proyecto de node `npm init`.
@@ -105,3 +113,20 @@ Verificamos que el servidor haya tomado los estilos correctamente.
     - Controlador: método **store()**
 
 **--- Fin del commit 6 ---**
+
+### Edición de productos
+1. Formulario de edición producto:
+    - Ruta: **/productos/:id/editar** (GET)
+    - Controlador: método **edit()**
+    - Vista: **products/edit.ejs**
+2. Almacenamiento en la colección de productos
+    - Modelo: método **update()**
+    - Ruta: **/productos** (PUT)
+    - Controlador: método **update()**
+3. Como vamos a trabajar con métodos HTTP no soportados por el navegador (primero PUT y luego DELETE) necesitamos implementar un nuevo módulo 
+    - `npm i method-override`
+    - Lo requerimos en nuesto **src/app.js**
+    - Lo implementamos como middleware de aplicación. `app.use(methodOverride('_method'));`
+    - Lo implementamos en el formulario a través del query string del request `?_method=PUT`
+
+**--- Fin del commit 7 ---**

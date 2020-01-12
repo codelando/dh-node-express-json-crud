@@ -3,6 +3,10 @@
 /* https://coolors.co/d8a47f-ef8354-ee4b6a-df3b57-0f7173 */
 
 :root {
+    --primary-color: #0f7173;
+    --dark-grey-color: #333;
+
+    --danger-color: #df3b57;
     --border-radius: .5rem;
     --padding: 1rem;
 }
@@ -17,6 +21,7 @@ body {
     padding: 0;
     background-color: #e9f2f2;
     font-family: sans-serif;
+    color: var(--dark-grey-color);
 }
 
 a { 
@@ -39,6 +44,61 @@ a {
     padding-bottom: 3rem;
 }
 
+
+/* Formularios */
+
+.form-container {
+    max-width: 600px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+}
+
+.form-container .title {
+    font-size: 2rem;
+    padding: 0 0 1rem;
+}
+
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: .5rem;
+    margin: .5rem 0 1rem;
+    background-color: #e9f2f2;
+    border: 0;
+    border-radius: var(--border-radius);
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    display: inline-block;
+    padding: var(--padding);
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--dark-grey-color);
+    cursor: pointer;
+}
+
+.button.is-primary,
+.button.is-danger {
+    color: white;
+    border: 0;
+}
+
+.button.is-primary { background-color: var(--primary-color); }
+.button.is-danger { background-color: var(--danger-color); }
+
+.button + .button { margin-left: 1rem; }
+
+
+/* Mensajes de la plataforma */
+
 .message {
     background-color: white;
     border-radius: var(--border-radius);
@@ -48,20 +108,6 @@ a {
 .message.error-message {
     background-color: #ee4b6a;
     color: white;
-}
-
-.actions {
-    padding-top: 1rem;
-}
-
-.button {
-    display: inline-block;
-    padding: var(--padding);
-    background-color: #0f7173;
-    color: white;
-    border-radius: var(--border-radius);
-    border: 0;
-    cursor: pointer;
 }
 
 /* Componentes principales */
