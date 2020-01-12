@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Product 1",
+        "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "price": 123
+    },
+    {
+        "id": 2,
+        "title": "Product 2",
+        "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "price": 123
+    },
+    {
+        "id": 3,
+        "title": "Product 3",
+        "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "price": 123
+    },
+    {
+        "id": 4,
+        "title": "Product 4",
+        "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "price": 123
+    },
+    {
+        "id": 5,
+        "title": "Product 5",
+        "desc": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "price": 123
+    }
+]

@@ -61,7 +61,20 @@ Verificamos que el servidor haya tomado los estilos correctamente.
 
 ### Agregamos la entidad de productos
 1. Repetimos los pasos anteriores para los **productos**
-    - Archivo de rutas **routes/products.js**, de momento solo **/**.
+    - Archivo de rutas **routes/products.js**, de momento solo la ruta del listado **/**.
     - Archivo de controllador **controllers/productsController.js**, de momento sólo el método **index**.
     - Carpeta de vistas **views/products** con la vista del listado **index.ejs**.
+    - Estilos básicos para la vista
     - **app.use()** en **src/app.js** con las rutas de productos.
+
+**--- Fin del commit 3 ---**
+
+### Colecciones de productos en formato JSON
+1. Creamos la carpeta **src/data** donde pondremos nuestras colecciones en formato JSON.
+2. Creamos el archivo **products.json** en la carpeta anterior, de momento con algunos productos agregados manualmente.
+3. Creamos la carpeta **models** que guardará nuestros modelos, ellos interactuarán con las colecciones.
+4. Creamos el modelo genérico para JSON **models/jsonModel.js**, en él tendremos dos métodos iniciales:
+    - Lectura del archivo JSON
+    - Traer todos los elementos
+
+

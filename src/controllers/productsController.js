@@ -1,6 +1,11 @@
+const JsonModel = require('../models/jsonModel');
+
+const productsModel = new JsonModel('products');
+
 const controller = {
     index: (req, res) => {
-        res.render('products/index');
+        let products = productsModel.all();
+        res.render('products/index', { products });
     }
 }
 
