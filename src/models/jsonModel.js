@@ -39,9 +39,9 @@ class JsonModel {
     all() { return this.readJsonFile() }
 
     /** Trae un documento por su valor de clave primaria */
-    find(value) {
+    find(id) {
         let items = this.readJsonFile();
-        return items.find((item) => item.id == value)
+        return items.find((item) => item.id == id)
     }
 
     /** Guarda el documento en la colección */
@@ -59,16 +59,24 @@ class JsonModel {
     update(item) {
         let items = this.readJsonFile();
         
-        let updatedItems = items.map((currentItem) => {
+        let updatedItems = items.map(currentItem => {
             if (currentItem.id == item.id) {
                 return currentItem = item;
             }
-            return currentItem;
         });
         
         this.writeJsonFile(updatedItems);
 
         return item.id;
+    }
+
+    /** Elimina el documento en la colección */
+    destroy(id) {
+        let items = this.readJsonFile();
+        
+        let filteredItems = items.filter(currentItem => currentItem.id != id );
+        
+        this.writeJsonFile(filteredItems);
     }
 }
 

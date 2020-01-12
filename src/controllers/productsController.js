@@ -49,6 +49,11 @@ const controller = {
         productsModel.update(req.body);
         res.redirect('/productos/' + req.params.id);
     },
+    destroy: (req, res) => {
+        console.log('Borrando');
+        productsModel.destroy(req.params.id);
+        res.redirect('/productos');
+    },
 }
 
 module.exports = controller;

@@ -83,6 +83,7 @@ select {
     border-radius: var(--border-radius);
     border: 1px solid var(--dark-grey-color);
     cursor: pointer;
+    font-size: inherit;
 }
 
 .button.is-primary,
@@ -94,8 +95,9 @@ select {
 .button.is-primary { background-color: var(--primary-color); }
 .button.is-danger { background-color: var(--danger-color); }
 
-.button + .button { margin-left: 1rem; }
-
+.button + .button,
+.button + form.has-buttons,
+form.has-buttons + .button { margin-left: 1rem; }
 
 /* Mensajes de la plataforma */
 

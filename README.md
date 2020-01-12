@@ -130,3 +130,13 @@ Verificamos que el servidor haya tomado los estilos correctamente.
     - Lo implementamos en el formulario a través del query string del request `?_method=PUT`
 
 **--- Fin del commit 7 ---**
+
+
+### Eliminación de productos
+1. Eliminando en la colección de productos
+    - Modelo: método **destroy()**
+    - Ruta: **/productos/:id** (DELETE)
+    - Controlador: método **destroy()**
+    - Vista: **products/detail.ejs**, formulario apuntando a la ruta correspondiente.
+
+**--- Fin del commit 8 ---**
