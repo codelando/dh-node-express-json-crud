@@ -26,7 +26,9 @@ const controller = {
         res.render('products/create');
     },
     store: (req, res) => {
+        req.body.image = req.file ? req.file.filename : '';
         let productId = productsModel.save(req.body);
+
         res.redirect('/productos/' + productId);
     },
     edit: (req, res) => {
@@ -46,11 +48,13 @@ const controller = {
     },
     update: (req, res) => {
         req.body.id = req.params.id;
+        /* Si nos lleva imagen guardamos esa, de lo contrario mantenemos la anterior */
+        req.body.image = req.file ? req.file.filename : req.body.oldImage;
         productsModel.update(req.body);
+
         res.redirect('/productos/' + req.params.id);
     },
     destroy: (req, res) => {
-        console.log('Borrando');
         productsModel.destroy(req.params.id);
         res.redirect('/productos');
     },

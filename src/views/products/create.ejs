@@ -2,7 +2,7 @@
     <section class="product-detail">
         <div class="container form-container">
             <h1 class="title">Nuevo producto</h1>
-            <form action="/productos" method="POST">
+            <form action="/productos" method="POST" enctype="multipart/form-data">
                 <%- include('./partials/formFields'); %>
                 <p class="buttons">
                     <button type="submit" class="button is-primary">Crear producto</button>
@@ -10,5 +10,4 @@
             </form>
         </div>
     </section>
-    
 <%- include('../partials/footer') %>

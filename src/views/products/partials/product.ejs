@@ -1,0 +1,10 @@
+<article class="product">
+    <a href="/productos/<%= product.id %>">
+        <h3><%= product.title %></h3>
+        <p class="image">
+            <img src="/images/products/<%= product.image ? product.image : 'default-product-image.png' %>" alt="">
+        </p>
+        <p class="desc"><%= product.desc %></p>
+        <p class="price">$ <%= product.price %></p>
+    </a>
+</article>

@@ -1,18 +1,30 @@
 <p>
     <label>
         Título
-        <input type="text" name="title" value="<%= locals.product ? locals.product.title : '' %>">
+        <input type="text" name="title" value="<%= locals.product ? product.title : '' %>">
     </label>
 </p>
 <p>
     <label>
         Descrición
-        <textarea name="desc"><%= locals.product ? locals.product.desc : '' %></textarea>
+        <textarea name="desc"><%= locals.product ? product.desc : '' %></textarea>
+    </label>
+</p>
+<p class="image">
+    <% if (locals.product) { %>
+        <img src="/images/products/<%= product.image ? product.image : 'default-product-image.png' %>" alt="">
+        <input type="hidden" name="oldImage" value="<%= product.image %>">
+    <% } %>
+</p>
+<p>
+    <label>
+        Imagen
+        <input type="file" name="image">
     </label>
 </p>
 <p>
     <label>
         Precio
-        <input type="text" name="price" value="<%= locals.product ? locals.product.price : '' %>">
+        <input type="text" name="price" value="<%= locals.product ? product.price : '' %>">
     </label>
 </p>

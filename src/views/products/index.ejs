@@ -2,13 +2,7 @@
     <h1>Listado de productos</h1>
     <section class="products">
         <% products.forEach(product => { %>
-            <article class="product">
-                <a href="/productos/<%= product.id %>">
-                    <h3><%= product.title %></h3>
-                    <p class="desc"><%= product.desc %></p>
-                    <p class="price">$ <%= product.price %></p>
-                </a>
-            </article>
+            <%- include('./partials/product', { product }) %>
         <% }); %>
     </section>
     <section class="buttons">

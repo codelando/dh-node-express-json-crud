@@ -5,6 +5,7 @@
 :root {
     --primary-color: #0f7173;
     --dark-grey-color: #333;
+    --light-grey-color: #e9f2f2;
 
     --danger-color: #df3b57;
     --border-radius: .5rem;
@@ -19,7 +20,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #e9f2f2;
+    background-color: var(--light-grey-color);
     font-family: sans-serif;
     color: var(--dark-grey-color);
 }
@@ -44,6 +45,7 @@ a {
     padding-bottom: 3rem;
 }
 
+.image img { width: 100%; }
 
 /* Formularios */
 
@@ -59,6 +61,10 @@ a {
     padding: 0 0 1rem;
 }
 
+.form-container .image img {
+    border-radius: var(--border-radius);
+    border: 10px solid var(--light-grey-color);
+}
 
 input,
 textarea,
@@ -66,7 +72,7 @@ select {
     width: 100%;
     padding: .5rem;
     margin: .5rem 0 1rem;
-    background-color: #e9f2f2;
+    background-color: var(--light-grey-color);
     border: 0;
     border-radius: var(--border-radius);
 }

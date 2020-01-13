@@ -2,7 +2,7 @@
 
 A continuación se describe el proceso de desarrollo de manera resumida.
 
-Los cambios referentes a HTML o CSS no se mencionan ya que el foco está en el funcionamiento de la aplicación y el entenidmiento de Node.
+Los cambios referentes a HTML o CSS no se mencionan ya que el foco está en el funcionamiento de la aplicación y el entendimiento de Node.
 
 También se incluyen para mayor claridad las fuentes de datos que normalmente no estarían presentes en el repositorio.
 
@@ -119,24 +119,44 @@ Verificamos que el servidor haya tomado los estilos correctamente.
     - Ruta: **/productos/:id/editar** (GET)
     - Controlador: método **edit()**
     - Vista: **products/edit.ejs**
-2. Almacenamiento en la colección de productos
+2. Almacenamiento en la colección de productos:
     - Modelo: método **update()**
     - Ruta: **/productos** (PUT)
     - Controlador: método **update()**
-3. Como vamos a trabajar con métodos HTTP no soportados por el navegador (primero PUT y luego DELETE) necesitamos implementar un nuevo módulo 
+3. Como vamos a trabajar con métodos HTTP no soportados por el navegador (primero PUT y luego DELETE) necesitamos implementar un nuevo módulo:
     - `npm i method-override`
-    - Lo requerimos en nuesto **src/app.js**
+    - Lo requerimos en nuestro **src/app.js**
     - Lo implementamos como middleware de aplicación. `app.use(methodOverride('_method'));`
     - Lo implementamos en el formulario a través del query string del request `?_method=PUT`
+4. Como gran parte del contenido del formulario se repite para creación y edicion, generamos un parcial para esa parte.
 
 **--- Fin del commit 7 ---**
 
-
 ### Eliminación de productos
-1. Eliminando en la colección de productos
+1. Eliminando en la colección de productos:
     - Modelo: método **destroy()**
     - Ruta: **/productos/:id** (DELETE)
     - Controlador: método **destroy()**
     - Vista: **products/detail.ejs**, formulario apuntando a la ruta correspondiente.
 
 **--- Fin del commit 8 ---**
+
+### Subida de archivos
+1. Preparamos el formulario de productos para que pueda subir archivos:
+    - Agregamos el campo de archivo `<input type="file" ... />`, en este caso cargaremos una imagen
+    - Agregamos el atributo en codificación para el formulario **enctype="multipart/form-data"**
+    - Creamos la carpeta donde guardaremos las imágenes **public/images/products/**
+    - Agregamos una imagen por defecto para productos nuevos o sin imagen
+2. Implementamos **multer** que nos servirá para procesar los archivos enviados:
+    - `npm i multer`
+    - Lo requerimos en nuestro archivo de rutas **src/routes/products.js**
+    - Configuramos el almacenamiento en el disco rígido `const storage = multer.diskStorage({ ... });`
+    - Ejecutamos multer `const upload = multer({ storage });`
+    - Implementamos el middleware en las rutas que correspondan: **edit** y **update**
+    - **Importante:** si trabajan en Mac o Linux, es posible que tengan que agregar permisos de escritura al directorio para poder subir archivos.
+3. Sumamos el guardado de la imagen a los métodos **store** y **update**
+    - En este caso el nombre de la imagen vendra en req.file.filename
+    - Para considerar el caso en el que no nos llegue imagen, en el formulario de update sumamos un campo que guarde la imagen actual.
+4. Sumamos la imagen al listado y detalle de productos.
+
+**--- Fin del commit 9 ---**
