@@ -1,0 +1,9 @@
+<article class="user">
+    <a href="/usuarios/<%= user.id %>">
+        <h3><%= user.name %></h3>
+        <p class="image">
+            <img src="/images/users/<%= user.image ? user.image : 'default-user-image.png' %>" alt="">
+        </p>
+        <p class="email"><%= user.email %></p>
+    </a>
+</article>

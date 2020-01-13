@@ -135,20 +135,23 @@ footer a{
 
 /* Estilos de cada página */
 
-/* Productos */
+/* Productos y usuarios */
 
-.products {
+.products,
+.users {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.products::after {
+.products::after,
+.users::after {
     content: "";
     flex-grow: 1;
 }
 
-.product {
+.product,
+.user {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -170,7 +173,8 @@ footer a{
 }
 
 @media (min-width: 768px) {
-    .products .product {
+    .products .product,
+    .users .user {
         width: calc(25% - 1rem);
     }
 }

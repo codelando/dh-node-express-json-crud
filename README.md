@@ -160,3 +160,15 @@ Verificamos que el servidor haya tomado los estilos correctamente.
 4. Sumamos la imagen al listado y detalle de productos.
 
 **--- Fin del commit 9 ---**
+
+### Entidad de usuarios
+1. Implementamos la entidad de usuarios replicando la de productos
+    - Rutas: **src/routes/user.js**
+    - Controlador: **src/controllers/userController.js**
+    - Vistas: **src/views/users/**
+    - Directorio para imágenes: **public/images/users/**
+    - Coleccion: **src/data/users.json**
+
+**--- Fin del commit 10 ---**
+
+### Login y perfil

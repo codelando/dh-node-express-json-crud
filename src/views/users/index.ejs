@@ -1,0 +1,11 @@
+<%- include('../partials/head') %>
+    <h1>Listado de usuarios</h1>
+    <section class="users">
+        <% users.forEach(user => { %>
+            <%- include('./partials/user', { user }) %>
+        <% }); %>
+    </section>
+    <section class="buttons">
+        <a class="button is-primary" href="/usuarios/nuevo">Nuevo usuario</a>
+    </section>
+<%- include('../partials/footer') %>

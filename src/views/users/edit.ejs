@@ -1,0 +1,15 @@
+<%- include('../partials/head') %>
+    <section class="user-detail">
+        <div class="container form-container">
+            <h1 class="title">Editar usuario</h1>
+            <form action="/usuarios/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <%- include('./partials/formFields'); %>
+                <p class="buttons">
+                    <a class="button" href="/usuarios/<%= user.id %>">&larr; Volver al detalle</a>
+                    <button type="submit" class="button is-primary">Guardar usuario</button>
+                </p>
+            </form>
+        </div>
+    </section>
+    
+<%- include('../partials/footer') %>

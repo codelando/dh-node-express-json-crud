@@ -1,0 +1,30 @@
+<p>
+    <label>
+        Nombre
+        <input type="text" name="name" value="<%= locals.user ? user.name : '' %>">
+    </label>
+</p>
+<p>
+    <label>
+        Email
+        <input type="text" name="email" value="<%= locals.user ? user.email : '' %>">
+    </label>
+</p>
+<p>
+    <label>
+        Contraseña
+        <input type="password" name="password" value="<%= locals.user ? user.password : '' %>">
+    </label>
+</p>
+<p class="image">
+    <% if (locals.user) { %>
+        <img src="/images/users/<%= user.image ? user.image : 'default-user-image.png' %>" alt="">
+        <input type="hidden" name="oldImage" value="<%= user.image %>">
+    <% } %>
+</p>
+<p>
+    <label>
+        Imagen
+        <input type="file" name="image">
+    </label>
+</p>

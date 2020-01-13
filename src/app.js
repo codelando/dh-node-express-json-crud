@@ -15,5 +15,6 @@ app.use(express.static('public'));
 // Routes
 app.use('/', require('./routes/static'));
 app.use('/productos', require('./routes/products'));
+app.use('/usuarios', require('./routes/users'));
 
 app.listen(3000, () => console.log('Servidor corriendo en el puerto 3000'));

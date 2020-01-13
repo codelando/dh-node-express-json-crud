@@ -1,0 +1,13 @@
+<%- include('../partials/head') %>
+    <h1>Detalle de usuario</h1>
+    <section class="user-detail">
+        <%- include('./partials/user', { user }) %>
+    </section>
+    <section class="buttons">
+        <a class="button" href="/usuarios/">&larr; Volver al listado</a>
+        <form class="has-buttons" action="/usuarios/<%= user.id %>?_method=DELETE" method="POST">
+            <button class="button is-danger" type="submit">Eliminar usuario</button>
+        </form>
+        <a class="button is-primary" href="/usuarios/<%= user.id %>/editar">Editar usuario</a>
+    </section>
+<%- include('../partials/footer') %>
