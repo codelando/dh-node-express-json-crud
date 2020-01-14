@@ -173,18 +173,37 @@ Verificamos que el servidor haya tomado los estilos correctamente.
 
 ### Login y perfil
 1. Implementamos las vistas de registro (usamos el create que ya teníamos) y login
-2. Implementamos las rutas correspondientes
+2. Implementamos las rutas correspondientes 
+    - **/usuarios/login** (GET y POST)
+    - **/usuarios/logout** (GET)
 3. Implementamos en el modelo, el método que nos permitirá buscar usuarios por email (o cualquier otro campo)
 4. Implementamos la encriptación de contraseñas
     - `npm i bcrypt`
     - Lo requerimos en el controlador de usuarios
     - Lo implementamos en el método **create**, `bcrypt.hashSync(...)`
-    - Lo implementamos en el método **login**, `bcrypt.hashSync(...)`
+    - Lo implementamos en el método **login**, `bcrypt.compareSync(...)`
 5. Implementamos el uso de sesiones
     - `npm i express-session`
     - Lo requerimos en **src/app.js**
     - Lo inicializamos con la configuración mínima sugerida `{ secret..., resave..., saveUninitialized...}`
-6. Implementamos un middleware de autenticación
-    - El middleware se encargará de verificar si existe un usuario en sesión y en ese caso hará disponible su información para las vistas.
+    - Creamos la sesión al hacer el login y guardamos los datos del usuario en ella.
+    - Destruimos la sesión al hacer logout
 
 **--- Fin del commit 11 ---**
+
+### Middlewares de autenticación, rutas de huésped y rutas de usuario
+
+6. Implementamos un middleware de autenticación
+El middleware se encargará de verificar si existe un usuario en sesión y en ese caso hará disponible su información para las vistas.
+    - Creamos la carpeta **src/middlewares**
+    - Creamos el middleware **src/middlewares/auth**
+    - Lo implementamos en **src/app.js**
+    - Modificamos la barra de navegación para que muestre los enlaces que correspondan según el usuario esté logeado o no.
+7. Implementamos dos middlewares para tener rutas de 
+    - Creamos el middleware **src/middlewares/guestRoute**
+        - Si un usuario accede a esta ruta, lo redirigimos
+    - Creamos el middleware **src/middlewares/userRoute**
+        - Si un huésped (alquien no logeado) accede a esta ruta, lo redirigimos
+    - Los implementamos en **src/routes/users.js**
+
+**--- Fin del commit 12 ---**

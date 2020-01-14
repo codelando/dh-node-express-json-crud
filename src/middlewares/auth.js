@@ -1,4 +1,4 @@
-const auth = (req, res, next) => {
+const locals = (req, res, next) => {
     res.locals.isAuthenticated = false;
 
     if (req.session.user) {
@@ -6,9 +6,7 @@ const auth = (req, res, next) => {
         res.locals.user = req.session.user;
     }
 
-    console.log(req.url, '-->' , 'autenticado:' , (typeof req.session.user !== 'undefined'))
-
     next();
 }
 
-module.exports = auth;
+module.exports = locals;

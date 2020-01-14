@@ -1,6 +1,14 @@
 <nav class="user-nav">
-    <a href="/usuarios/nuevo">Registrarse</a>
-    <a href="/usuarios/ingresar">Ingresar</a>
-    <a href="/usuarios/perfil">Perfil</a>
-    <a href="/usuarios/salir">Salir</a>
+    <% if(isAuthenticated) { %>
+        <a href="/usuarios/perfil">
+            <span class="user-badge">
+                <img class="user-image" src="/images/users/<%= user.image %>" alt="<%= user.name %>">
+                <span class="user-name"><%= user.name %></span>
+            </span>
+        </a>
+        <a href="/usuarios/salir">Salir</a>
+    <% } else { %>
+        <a href="/usuarios/nuevo">Registrarse</a>
+        <a href="/usuarios/ingresar">Ingresar</a>
+    <% } %>
 </nav>

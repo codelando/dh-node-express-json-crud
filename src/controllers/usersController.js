@@ -42,7 +42,8 @@ const controller = {
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 delete user.password;
                 req.session.user = user;
-                res.render('users/edit', { user });
+                res.locals.user = req.session.user;
+                res.redirect('/usuarios/perfil');
             } else {
                 res.render('users/404', { 
                     message: {
@@ -65,6 +66,10 @@ const controller = {
     logout: (req, res) => {
         req.session.destroy();
         res.redirect('/');
+    },
+    profile: (req, res) => {
+        let user = usersModel.find(req.session.user.id);
+        res.render('users/detail', { user });
     },
     edit: (req, res) => {
         let user = usersModel.find(req.params.id);

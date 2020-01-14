@@ -133,6 +133,24 @@ footer a{
     color: white;
 }
 
+.user-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: .5rem;
+    border-radius: 2rem;
+    background-color: #0f7173;
+}
+
+.user-badge .user-image {
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+}
+
+.user-badge .user-name {
+    margin: 0 .5rem;
+}
+
 /* Estilos de cada página */
 
 /* Productos y usuarios */
