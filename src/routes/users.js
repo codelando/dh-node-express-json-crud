@@ -19,7 +19,11 @@ const usersController = require('../controllers/usersController');
 router.get('/', usersController.index);
 router.get('/nuevo', usersController.create);
 router.post('/',  upload.single('image'), usersController.store);
+router.get('/ingresar', usersController.loginForm);
+router.post('/ingresar', usersController.login);
+router.get('/salir', usersController.logout);
 router.get('/:id', usersController.show);
+
 router.get('/:id/editar', usersController.edit);
 router.put('/:id', upload.single('image'), usersController.update);
 router.delete('/:id', usersController.destroy);

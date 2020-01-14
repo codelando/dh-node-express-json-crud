@@ -41,7 +41,13 @@ class JsonModel {
     /** Trae un documento por su valor de clave primaria */
     find(id) {
         let items = this.readJsonFile();
-        return items.find((item) => item.id == id)
+        return items.find(item => item.id == id)
+    }
+
+    /** Trae un documento por su valor de clave primaria */
+    findByField(field, value) {
+        let items = this.readJsonFile();
+        return items.find(item => item[field] == value);
     }
 
     /** Guarda el documento en la colección */
@@ -57,7 +63,6 @@ class JsonModel {
 
     /** Actualiza el documento en la colección */
     update(item) {
-        
         let items = this.readJsonFile();
 
         let updatedItems = items.map(currentItem => {

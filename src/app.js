@@ -1,16 +1,22 @@
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const session = require('express-session');
 
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', 'src/views');
+app.use(express.static('public'));
 
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
+app.use(session({
+    secret: 'Node JSON CRUD',
+    resave: false,
+    saveUninitialized: true
+}));
 
 // Routes
 app.use('/', require('./routes/static'));

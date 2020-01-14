@@ -1,1 +1,16 @@
-[]
+[
+ {
+  "name": "Test",
+  "email": "test@test.com",
+  "password": "$2b$10$EpaPZyIWU4PZDyFcAFQj2OsSvrNh/MhBa27Zzx8kGE5SPMb4YCwlq",
+  "image": "user-1578944461157.png",
+  "id": 1
+ },
+ {
+  "name": "test",
+  "email": "testtesttest@test.com",
+  "password": "$2b$10$EpaPZyIWU4PZDyFcAFQj2OsSvrNh/MhBa27Zzx8kGE5SPMb4YCwlq",
+  "image": "user-1578949183440.png",
+  "id": 2
+ }
+]

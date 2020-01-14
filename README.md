@@ -172,3 +172,19 @@ Verificamos que el servidor haya tomado los estilos correctamente.
 **--- Fin del commit 10 ---**
 
 ### Login y perfil
+1. Implementamos las vistas de registro (usamos el create que ya teníamos) y login
+2. Implementamos las rutas correspondientes
+3. Implementamos en el modelo, el método que nos permitirá buscar usuarios por email (o cualquier otro campo)
+4. Implementamos la encriptación de contraseñas
+    - `npm i bcrypt`
+    - Lo requerimos en el controlador de usuarios
+    - Lo implementamos en el método **create**, `bcrypt.hashSync(...)`
+    - Lo implementamos en el método **login**, `bcrypt.hashSync(...)`
+5. Implementamos el uso de sesiones
+    - `npm i express-session`
+    - Lo requerimos en **src/app.js**
+    - Lo inicializamos con la configuración mínima sugerida `{ secret..., resave..., saveUninitialized...}`
+6. Implementamos un middleware de autenticación
+    - El middleware se encargará de verificar si existe un usuario en sesión y en ese caso hará disponible su información para las vistas.
+
+**--- Fin del commit 11 ---**

@@ -1,0 +1,30 @@
+<%- include('../partials/head') %>
+    <section class="product-detail">
+        <div class="container form-container">
+            <h1 class="title">Login</h1>
+            <form action="/usuarios/ingresar" method="POST">
+                <p>
+                    <label>
+                        Email
+                        <input type="text" name="email">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Contraseña
+                        <input type="password" name="password">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="remember">
+                        Recordarme
+                    </label>
+                </p>
+                <p class="buttons">
+                    <button type="submit" class="button is-primary">Ingresar</button>
+                </p>
+            </form>
+        </div>
+    </section>
+<%- include('../partials/footer') %>
