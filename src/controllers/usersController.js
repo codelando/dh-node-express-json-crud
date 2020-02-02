@@ -1,7 +1,9 @@
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const JsonModel = require('../models/jsonModel');
 
 const usersModel = new JsonModel('users');
+const userTokensModel = new JsonModel('userTokens');
 
 const controller = {
     index: (req, res) => {
@@ -43,7 +45,16 @@ const controller = {
                 delete user.password;
                 req.session.user = user;
                 res.locals.user = req.session.user;
+                                
+                if (req.body.remember) {
+                    // https://stackoverflow.com/questions/8855687/secure-random-token-in-node-js
+                    const token = crypto.randomBytes(64).toString('base64');
+                    res.cookie('rememberToken', token, { maxAge: 1000 * 60 * 60 * 24 * 90 });
+                    userTokensModel.save({ userId: user.id, token});
+                }
+
                 res.redirect('/usuarios/perfil');
+
             } else {
                 res.render('users/404', { 
                     message: {
@@ -64,7 +75,20 @@ const controller = {
         }       
     },
     logout: (req, res) => {
+        // Al hacer logout borramos todos las cookies activas
+        let tokens = userTokensModel.findAllByField('userId', req.session.user.id);
+        if (tokens) {
+            tokens.forEach(token => {
+                userTokensModel.destroy(token.id);
+            });
+        }
+
+        // La otra opción sería solo borrar la que corresponda a esta sesión.
+        // let token = userTokensModel.findByField('token', req.cookies.rememberToken);
+        // if (token) { userTokensModel.destroy(token.id) }
+
         req.session.destroy();
+        res.cookie('rememberToken', null, { maxAge: -1 });
         res.redirect('/');
     },
     profile: (req, res) => {

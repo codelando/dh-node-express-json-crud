@@ -50,6 +50,12 @@ class JsonModel {
         return items.find(item => item[field] == value);
     }
 
+    /** Trae un documento por su valor de clave primaria */
+    findAllByField(field, value) {
+        let items = this.readJsonFile();
+        return items.filter(item => item[field] == value);
+    }
+
     /** Guarda el documento en la colección */
     save(item) {
         let items = this.readJsonFile();

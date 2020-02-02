@@ -193,13 +193,13 @@ Verificamos que el servidor haya tomado los estilos correctamente.
 
 ### Middlewares de autenticación, rutas de huésped y rutas de usuario
 
-6. Implementamos un middleware de autenticación
+1. Implementamos un middleware de autenticación
 El middleware se encargará de verificar si existe un usuario en sesión y en ese caso hará disponible su información para las vistas.
     - Creamos la carpeta **src/middlewares**
     - Creamos el middleware **src/middlewares/auth**
     - Lo implementamos en **src/app.js**
     - Modificamos la barra de navegación para que muestre los enlaces que correspondan según el usuario esté logeado o no.
-7. Implementamos dos middlewares para tener rutas de 
+2. Implementamos dos middlewares para tener rutas de 
     - Creamos el middleware **src/middlewares/guestRoute**
         - Si un usuario accede a esta ruta, lo redirigimos
     - Creamos el middleware **src/middlewares/userRoute**
@@ -207,3 +207,23 @@ El middleware se encargará de verificar si existe un usuario en sesión y en es
     - Los implementamos en **src/routes/users.js**
 
 **--- Fin del commit 12 ---**
+
+## Implementamos la funcionalidad de recordar al usuario
+
+1. Implementamos el módulo de manejo de cookies
+    - `npm i cookie-parser`
+    - Lo requerimos en **src/app.js**
+    - Lo inicializamos con **app.use(...)**
+2. Implementamos la funcionalidad para recordar al usuario
+    - Modelo
+        - Implementamos el método para traer todos los registros por campo
+    - Controlador
+        - Utilizamos el modulo **crypto** para generar un token seguro
+        - Creamos la cookie con el token si llega el campo **remember** durante el **login**
+        - Destruimos la cookie y el documento durante el **logout**
+    - Coleccion: **src/data/userTokens.json**
+3. Modificamos nuestro middleware de autenticación para que detecte la cookie y loguee al usuario
+
+**TODO:** Tal vez sería más prolijo a esta altura tener un controlador aparte para la autenticación. 
+
+**--- Fin del commit 13 ---**
